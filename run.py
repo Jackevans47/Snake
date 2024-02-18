@@ -7,6 +7,9 @@ def next():
     print()
 
 def food_object(snake, container):
+    """ Function to find food inside the game container and not the body of 
+    the snake
+    """
     food = None
     while food is None:
         food = [random.randint(container[0][0]+1, container[1][0]-1),
@@ -37,13 +40,12 @@ def main(screen):
     snake = [[height//2, width//2+1], [height//2, width//2], [height//2, width//2-1]]
     direction = curses.KEY_RIGHT
 
-    """
-    Snake
-    """
+    # Snake
+
     for y,x in snake:
         screen.addstr(y, x, "#")
 
-    # create food
+    # Food
     food = food_object(snake, container)
     screen.addstr(food[0], food[1], '*')
     
@@ -71,12 +73,17 @@ def main(screen):
         snake.insert(0, next_head)
         screen.addstr(next_head[0], next_head[1], '#')
 
-        # removes old head when snake is moving
-        screen.addstr(snake[-1][0], snake[-1][1], ' ')
-        snake.pop()
+        
+        
+
+        if snake[0] == food:
+            food = food_object(snake, container)
+            screen.addstr(food[0], food[1], '*')
+        else:
+            screen.addstr(snake[-1][0], snake[-1][1], ' ')
+            snake.pop()
 
         # Game over when wall is hit
-
         if (snake[0][0] in [container[0][0], container[1][0]] or 
 			snake[0][1] in [container[0][1], container[1][1]] or 
 			snake[0] in snake[1:]):
