@@ -1,13 +1,19 @@
 import curses
 from curses import textpad
-from random import randint
+import random
 
 
 def next():
     print()
 
-def food():
-    print()
+def food_object(snake, container):
+    food = None
+    while food is None:
+        food = [random.randint(container[0][0]+1, container[1][0]-1),
+		random.randint(container[0][1]+1, container[1][1]-1)]
+        if food in snake:
+            food = None
+    return food
 
 def game_over():
     print()
@@ -22,8 +28,8 @@ def main(screen):
     screen.timeout(160)
 
     height,width = screen.getmaxyx()
-    box = [[2,2], [height-2, width-2]]
-    textpad.rectangle(screen, box[0][0], box[0][1], box[1][0], box[1][1])
+    container = [[2,2], [height-2, width-2]]
+    textpad.rectangle(screen, container[0][0], container[0][1], container[1][0], container[1][1])
     
     """
     Snake starting position and direction
@@ -36,6 +42,10 @@ def main(screen):
     """
     for y,x in snake:
         screen.addstr(y, x, "#")
+
+    # create food
+    food = food_object(snake, container)
+    screen.addstr(food[0], food[1], '*')
     
     while 1:
 
@@ -65,10 +75,10 @@ def main(screen):
         screen.addstr(snake[-1][0], snake[-1][1], ' ')
         snake.pop()
 
-        # Game overc when wall is hit
+        # Game over when wall is hit
 
-        if (snake[0][0] in [box[0][0], box[1][0]] or 
-			snake[0][1] in [box[0][1], box[1][1]] or 
+        if (snake[0][0] in [container[0][0], container[1][0]] or 
+			snake[0][1] in [container[0][1], container[1][1]] or 
 			snake[0] in snake[1:]):
             msg = "Game Over!"
             screen.addstr(height//2, width//2-len(msg)//2, msg)
