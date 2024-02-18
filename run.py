@@ -1,5 +1,6 @@
 import curses
 from curses import textpad
+from random import randint
 
 
 def next():
@@ -10,6 +11,7 @@ def food():
 
 def game_over():
     print()
+
 
 def main(screen):
     """
@@ -39,6 +41,7 @@ def main(screen):
 
         key = screen.getch()
         
+        
         # set direction when arrow key is pressed
         if key in [curses.KEY_RIGHT, curses.KEY_LEFT, curses.KEY_UP, curses.KEY_DOWN]:
             direction = key
@@ -62,11 +65,18 @@ def main(screen):
         screen.addstr(snake[-1][0], snake[-1][1], ' ')
         snake.pop()
 
-        screen.refresh()
+        # Game overc when wall is hit
 
+        if (snake[0][0] in [box[0][0], box[1][0]] or 
+			snake[0][1] in [box[0][1], box[1][1]] or 
+			snake[0] in snake[1:]):
+            msg = "Game Over!"
+            screen.addstr(height//2, width//2-len(msg)//2, msg)
+            screen.nodelay(0)
+            screen.getch()
+            break
 
-
-
+    screen.refresh()
 
 curses.wrapper(main)
 
