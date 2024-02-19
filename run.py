@@ -18,6 +18,13 @@ def food_object(snake, container):
             food = None
     return food
 
+# Display score
+def show_score(screen, score):
+    score_display = "score: {}".format(score)
+    height, width = screen.getmaxyx()
+    screen.addstr(1, width//2 - len(score_display)//2, score_display)
+    screen.refresh()
+
 def game_over():
     print()
 
@@ -48,6 +55,9 @@ def main(screen):
     # Food
     food = food_object(snake, container)
     screen.addstr(food[0], food[1], '*')
+
+    score = 0
+    show_score(screen, score)
     
     while 1:
 
@@ -73,12 +83,12 @@ def main(screen):
         snake.insert(0, next_head)
         screen.addstr(next_head[0], next_head[1], '#')
 
-        
-        
-
+        # Increase size of snake when food object is eaten
         if snake[0] == food:
             food = food_object(snake, container)
             screen.addstr(food[0], food[1], '*')
+            score += 1
+            show_score(screen, score)
         else:
             screen.addstr(snake[-1][0], snake[-1][1], ' ')
             snake.pop()
