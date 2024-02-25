@@ -3,25 +3,25 @@ from curses import textpad
 import random
 from simple_term_menu import TerminalMenu
 
+# Main menu options
 def main():
     choice = None
     while choice != "Exit":
         choice = display_main_menu()
         if choice == "Play":    
             curses.wrapper(main_body)
-            print("Game Over")
         elif choice == "Rules":
-            print("rules")
+            print("Eat the apple to increase the size of the snake and score points, if the snake eats itself or hits the wall then game over.")
             terminal_menu = TerminalMenu(["Return"])
             terminal_menu.show()
 
-
+# Display for the main menu
 def display_main_menu():
     options = ["Play", "Rules", "Exit"]
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
-    print(f"You have selected {options[menu_entry_index]}!")
     return options[menu_entry_index]
+
 
 def food_object(snake, container):
     """ Function to place food inside the game container and not the body of 
@@ -29,8 +29,10 @@ def food_object(snake, container):
     """
     food = None
     while food is None:
-        food = [random.randint(container[0][0]+1, container[1][0]-1),
-		random.randint(container[0][1]+1, container[1][1]-1)]
+        food_y = random.randint(container[0][0]+1, container[1][0]-4)
+        food_x = random.randint(container[0][1]+1, container[1][1]-4)
+        food = [food_y, food_x]
+
         if food in snake:
             food = None
     return food
@@ -38,12 +40,9 @@ def food_object(snake, container):
 # Display score
 def show_score(screen, score):
     score_display = "score: {}".format(score)
-    height, width = screen.getmaxyx()
+    width = curses.COLS
     screen.addstr(1, width//2 - len(score_display)//2, score_display)
     screen.refresh()
-
-def game_over():
-    print()
 
 
 def main_body(screen):
@@ -54,10 +53,14 @@ def main_body(screen):
     screen.nodelay(1)
     screen.timeout(160)
 
-
     height,width = screen.getmaxyx()
-    container = [[2,2], [height-2, width-2]]
-    textpad.rectangle(screen, container[0][0], container[0][1], container[1][0], container[1][1])
+    # container coordinates
+    upper_left_y = 2
+    upper_left_x = 2
+    lower_right_y = height-2
+    lower_right_x = width-2
+    container = [[upper_left_y, upper_left_x], [lower_right_y, lower_right_x]]
+    textpad.rectangle(screen, upper_left_y, upper_left_x , lower_right_y, lower_right_x)
     
     """
     Snake starting position and direction
@@ -65,14 +68,13 @@ def main_body(screen):
     snake = [[height//2, width//2+1], [height//2, width//2], [height//2, width//2-1]]
     direction = curses.KEY_RIGHT
 
-    # Snake
-
+    # Add snake
     for y,x in snake:
         screen.addstr(y, x, "#")
 
-    # Food
+    # Add food
     food = food_object(snake, container)
-    screen.addstr(food[0], food[1], '\U0001F34E')
+    screen.addstr(food[0], food[1], '*')
 
     # Score
     score = 0
@@ -81,8 +83,7 @@ def main_body(screen):
     while 1:
 
         key = screen.getch()
-        
-        
+    
         # set direction when arrow key is pressed
         if key in [curses.KEY_RIGHT, curses.KEY_LEFT, curses.KEY_UP, curses.KEY_DOWN]:
             direction = key
@@ -106,7 +107,7 @@ def main_body(screen):
         # Increase size of snake when food object is eaten
         if snake[0] == food:
             food = food_object(snake, container)
-            screen.addstr(food[0], food[1], '\U0001F34E')
+            screen.addstr(food[0], food[1], '*')
             score += 1
             show_score(screen, score)
         else:
@@ -114,8 +115,8 @@ def main_body(screen):
             snake.pop()
 
         # Game over when wall is hit
-        if (snake[0][0] in [container[0][0], container[1][0]] or 
-			snake[0][1] in [container[0][1], container[1][1]] or 
+        if (snake[0][0] in [upper_left_y, lower_right_y] or 
+			snake[0][1] in [upper_left_x, lower_right_x] or 
 			snake[0] in snake[1:]):
             game_over_msg = "Game Over!"
             return_msg = "Press any key to return to menu"
