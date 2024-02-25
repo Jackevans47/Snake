@@ -49,7 +49,7 @@ def main_body(screen):
     """
     Game area
     """
-    curses.curs_set(0)
+    curses.curs_set(False)
     screen.nodelay(1)
     screen.timeout(160)
 
