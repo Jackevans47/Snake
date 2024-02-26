@@ -3,17 +3,22 @@ from curses import textpad
 import random
 from simple_term_menu import TerminalMenu
 
+
 # Main menu options
 def main():
     choice = None
     while choice != "Exit":
         choice = display_main_menu()
-        if choice == "Play":    
+        if choice == "Play":
             curses.wrapper(main_body)
         elif choice == "Rules":
-            print("Eat the apple to increase the size of the snake and score points, if the snake eats itself or hits the wall then game over.")
+            print(f"""
+Eat the apple to increase the size of the snake and score points, if the snake
+eats itself or hits the wall then game over.
+            """)
             terminal_menu = TerminalMenu(["Return"])
             terminal_menu.show()
+
 
 # Display for the main menu
 def display_main_menu():
@@ -24,7 +29,8 @@ def display_main_menu():
 
 
 def food_object(snake, container):
-    """ Function to place food inside the game container and not the body of 
+    """
+    Function to place food inside the game container and not the body of
     the snake
     """
     food = None
@@ -36,6 +42,7 @@ def food_object(snake, container):
         if food in snake:
             food = None
     return food
+
 
 # Display score
 def show_score(screen, score):
@@ -49,27 +56,33 @@ def main_body(screen):
     """
     Game area
     """
-    #curses.curs_set(False)
+    # curses.curs_set(False)
     screen.nodelay(1)
     screen.timeout(160)
 
-    height,width = screen.getmaxyx()
+    height, width = screen.getmaxyx()
     # container coordinates
     upper_left_y = 2
     upper_left_x = 2
     lower_right_y = height-2
     lower_right_x = width-2
     container = [[upper_left_y, upper_left_x], [lower_right_y, lower_right_x]]
-    textpad.rectangle(screen, upper_left_y, upper_left_x , lower_right_y, lower_right_x)
-    
-    """
-    Snake starting position and direction
-    """
-    snake = [[height//2, width//2+1], [height//2, width//2], [height//2, width//2-1]]
+    textpad.rectangle(
+        screen,
+        upper_left_y,
+        upper_left_x,
+        lower_right_y,
+        lower_right_x
+        )
+
+    # Snake starting position and direction
+    snake = [
+        [height//2, width//2+1], [height//2, width//2], [height//2, width//2-1]
+    ]
     direction = curses.KEY_RIGHT
 
     # Add snake
-    for y,x in snake:
+    for y, x in snake:
         screen.addstr(y, x, "#")
 
     # Add food
@@ -79,26 +92,26 @@ def main_body(screen):
     # Score
     score = 0
     show_score(screen, score)
-    
-    while 1:
+    while True:
 
         key = screen.getch()
-    
+
         # set direction when arrow key is pressed
-        if key in [curses.KEY_RIGHT, curses.KEY_LEFT, curses.KEY_UP, curses.KEY_DOWN]:
+        if key in [
+            curses.KEY_RIGHT, curses.KEY_LEFT, curses.KEY_UP, curses.KEY_DOWN
+        ]:
             direction = key
 
         # next position of new snake head when snake moves
         head = snake[0]
         if direction == curses.KEY_RIGHT:
-            next_head = [head[0],head[1]+1]
+            next_head = [head[0], head[1]+1]
         elif direction == curses.KEY_LEFT:
             next_head = [head[0], head[1]-1]
         elif direction == curses.KEY_DOWN:
             next_head = [head[0]+1, head[1]]
         elif direction == curses.KEY_UP:
             next_head = [head[0]-1, head[1]]
-
 
         # prints new head
         snake.insert(0, next_head)
@@ -115,13 +128,24 @@ def main_body(screen):
             snake.pop()
 
         # Game over when wall is hit
-        if (snake[0][0] in [upper_left_y, lower_right_y] or 
-			snake[0][1] in [upper_left_x, lower_right_x] or 
-			snake[0] in snake[1:]):
+        if (
+            snake[0][0] in [upper_left_y, lower_right_y] or
+            snake[0][1] in [upper_left_x, lower_right_x] or
+            snake[0] in snake[1:]
+        ):
+
             game_over_msg = "Game Over!"
             return_msg = "Press any key to return to menu"
-            screen.addstr(height//3, width//2-len(game_over_msg)//2, game_over_msg)
-            screen.addstr(height//2, width//2-len(return_msg)//2, return_msg)
+            screen.addstr(
+                height//3,
+                width//2-len(game_over_msg)//2,
+                game_over_msg
+            )
+            screen.addstr(
+                height//2,
+                width//2-len(return_msg)//2,
+                return_msg
+                )
             screen.nodelay(0)
             screen.getch()
             screen.clear()
@@ -132,4 +156,3 @@ def main_body(screen):
 
 if __name__ == "__main__":
     main()
-
