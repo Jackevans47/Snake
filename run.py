@@ -1,6 +1,6 @@
+import random
 import curses
 from curses import textpad
-import random
 from simple_term_menu import TerminalMenu
 
 
@@ -8,6 +8,9 @@ from simple_term_menu import TerminalMenu
 def main():
     choice = None
     while choice != "Exit":
+        print(f"""
+Welcome to snake!
+            """)
         choice = display_main_menu()
         if choice == "Play":
             curses.wrapper(main_body)
@@ -53,9 +56,6 @@ def show_score(screen, score):
 
 
 def main_body(screen):
-    """
-    Game area
-    """
     # curses.curs_set(False)
     screen.nodelay(1)
     screen.timeout(160)
