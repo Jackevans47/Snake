@@ -59,7 +59,7 @@ def show_score(screen, score):
 
 
 def main_body(screen):
-    # curses.curs_set(False)
+    curses.curs_set(False)
     screen.nodelay(1)
     screen.timeout(160)
 
