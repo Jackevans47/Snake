@@ -61,7 +61,6 @@ def show_score(screen, score):
 
 def main_body(screen):
     cursor.hide()
-    # curses.curs_set(False)
     screen.nodelay(1)
     screen.timeout(160)
 
@@ -85,6 +84,7 @@ def main_body(screen):
         [height//2, width//2+1], [height//2, width//2], [height//2, width//2-1]
     ]
     direction = curses.KEY_RIGHT
+    blocked_key = curses.KEY_LEFT
 
     # Add snake
     for y, x in snake:
@@ -107,6 +107,16 @@ def main_body(screen):
         ]:
             direction = key
 
+        OPPOSITES = {
+             curses.KEY_RIGHT: curses.KEY_LEFT,
+             curses.KEY_LEFT: curses.KEY_RIGHT,
+             curses.KEY_UP: curses.KEY_DOWN,
+             curses.KEY_DOWN: curses.KEY_UP,
+        }
+            
+        if direction == blocked_key:
+            direction = OPPOSITES[direction]
+
         # next position of new snake head when snake moves
         head = snake[0]
         if direction == curses.KEY_RIGHT:
@@ -118,6 +128,8 @@ def main_body(screen):
         elif direction == curses.KEY_UP:
             next_head = [head[0]-1, head[1]]
 
+        blocked_key = OPPOSITES[direction]
+        
         # prints new head
         snake.insert(0, next_head)
         screen.addstr(next_head[0], next_head[1], "#")
