@@ -1,5 +1,6 @@
 from os import system 
 import random
+import cursor
 import curses
 from curses import textpad
 from simple_term_menu import TerminalMenu
@@ -59,7 +60,8 @@ def show_score(screen, score):
 
 
 def main_body(screen):
-    curses.curs_set(False)
+    cursor.hide()
+    # curses.curs_set(False)
     screen.nodelay(1)
     screen.timeout(160)
 
