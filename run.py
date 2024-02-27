@@ -1,3 +1,4 @@
+from os import system 
 import random
 import curses
 from curses import textpad
@@ -21,6 +22,8 @@ eats itself or hits the wall then game over.
             """)
             terminal_menu = TerminalMenu(["Return"])
             terminal_menu.show()
+        system('clear')
+    print("You have quit the game!")
 
 
 # Display for the main menu
