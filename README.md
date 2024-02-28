@@ -35,3 +35,39 @@ Users can quickly learn the rules and jump straight into the game.
 * As a Frequent User, I want the placement of the food to be randomised so the game remains interesting. 
 
 ---
+
+## Features
+  
+  - **When the game is loaded**
+
+    The user can see a menu with 3 options.
+    
+    - Shows the terminal menu with three options:
+
+    1. Play
+    2. Rules
+    3. Exit
+   
+    ![main menu](https://github.com/Jackevans47/Snake/assets/148341732/fc37ccfd-2e0d-4fe2-85f4-804c0b3f11da)
+
+The user can interact with the menu with the arrowkeys to choose an option then hit enter to confirm.
+
+ - **When the user chose "Play"**
+
+   The program will begin to run and the user can play the game.
+   
+   ![game run](https://github.com/Jackevans47/Snake/assets/148341732/8b8cb381-d38b-4a5e-b56a-630d729f5843)
+
+   
+ - **When the user chose "Rules"**
+
+   The rules are explained to the user with a return key below directing the user back to the main menu.
+
+   ![rules message](https://github.com/Jackevans47/Snake/assets/148341732/c18adad1-d076-4eb8-a461-8608077f2e77)
+
+
+   - **When the user chose "Exit"**
+  
+   The program will close and the user is shown an exit message confirming they have quit the game.
+
+   ![exit game message](https://github.com/Jackevans47/Snake/assets/148341732/08aaea17-9305-47bc-97cc-4bbc48fc0b6e)
