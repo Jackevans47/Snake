@@ -101,3 +101,18 @@ The flowchart represents the logic of the application:
 
 
 ---
+## Technologies Used
+
+### Languages:
+
+- [Python 3.8.5](https://www.python.org/downloads/release/python-396/): used to anchor the project and direct all application behavior
+
+- [JavaScript](https://www.javascript.com/): used to provide the start script needed to run the Code Institute mock terminal in the browser
+
+### Frameworks/Libraries, Programmes and Tools:
+#### Python modules/packages:
+
+##### Standard library imports:
+
+- [random](https://docs.python.org/3/library/random.html) was used to implement pseudo-random number generation.
+- [os](https://docs.python.org/3/library/os.html ) was used to clear the terminal before running the program.
