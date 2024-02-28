@@ -92,3 +92,12 @@ The user can interact with the menu with the arrowkeys to choose an option then 
      ![game over](https://github.com/Jackevans47/Snake/assets/148341732/cdd28d5a-ff7a-473f-9f5e-b010b61c2692)
      
 ---
+
+## Flowchart
+
+The flowchart represents the logic of the application:
+
+  <img width="555" alt="flow chart" src="https://github.com/Jackevans47/Snake/assets/148341732/6beb9220-0e99-4b3e-a17d-5ca2dd66fa2e">
+
+
+---
