@@ -116,9 +116,11 @@ The flowchart represents the logic of the application:
 
 - [random](https://docs.python.org/3/library/random.html) was used to implement pseudo-random number generation.
 - [os](https://docs.python.org/3/library/os.html ) was used to clear the terminal before running the program.
+- 
 ##### Third-party imports:
 - [Simple Terminal Menu](https://pypi.org/project/simple-term-menu/) was used to implement the menu.
-- [cursor](https://pypi.org/project/cursor/) was used to implement the controls for the game.
+- [curses](https://pypi.org/project/windows-curses/) was used to implement the controls for the game.
+- [cursor](https://pypi.org/project/cursor/) was used to hide the cursor.
 
 #### Other tools:
 - [VSCode](https://code.visualstudio.com/) was used as the main tool to write and edit code.
@@ -127,5 +129,15 @@ The flowchart represents the logic of the application:
 - [render.com](https://render.com/) was used to deploy the project.
 - [Draw.io](https://app.diagrams.net/) was used to make a flowchart for the README file.
 
+
+---
+
+## bugs
+
+1. ERR error was present when live deploying to render. This was caused by cursor.curse_set(). This bug was fixed by implimenting cursor.hide().
+
+2. A bug occured with the random spawning of the food object outside the game area, this was fixed by editing the coordinates.
+
+3. An unfixed bug was present when trying to impliment the use of emojis for the snake and food object. The food object would randomly not spawn in. This was fixed by keeping the code simple and just using "#" for the snake and "*" for the food. The use of emojis could be applied during a future project.
 
 ---
