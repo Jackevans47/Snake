@@ -116,3 +116,16 @@ The flowchart represents the logic of the application:
 
 - [random](https://docs.python.org/3/library/random.html) was used to implement pseudo-random number generation.
 - [os](https://docs.python.org/3/library/os.html ) was used to clear the terminal before running the program.
+##### Third-party imports:
+- [Simple Terminal Menu](https://pypi.org/project/simple-term-menu/) was used to implement the menu.
+- [cursor](https://pypi.org/project/cursor/) was used to implement the controls for the game.
+
+#### Other tools:
+- [VSCode](https://code.visualstudio.com/) was used as the main tool to write and edit code.
+- [Git](https://git-scm.com/) was used for the version control of the website.
+- [GitHub](https://github.com/) was used to host the code of the website.
+- [render.com](https://render.com/) was used to deploy the project.
+- [app.diagrams](https://app.diagrams.net/) was used to make a flowchart for the README file.
+
+
+---
