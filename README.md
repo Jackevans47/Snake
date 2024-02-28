@@ -23,3 +23,15 @@ Users can quickly learn the rules and jump straight into the game.
   Link to the game: *https://snake-3.onrender.com/*   
 
 ---
+## User Stories
+### First Time Visitor Goals:
+
+* As a First Time Visitor, I want to quickly understand the games primary purpose so that I can enjoy playing it.
+* As a First Time Visitor, I want to navigate through the game easily so that I can have fun playing.
+* As a First Time Visitor, I want to be able to find out the rules so i know how to play.
+
+### Frequent Visitor Goals:
+* As a Frequent User, I want to be able to challenge myself to beat my previous score.
+* As a Frequent User, I want the placement of the food to be randomised so the game remains interesting. 
+
+---
