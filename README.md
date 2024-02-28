@@ -125,7 +125,7 @@ The flowchart represents the logic of the application:
 - [Git](https://git-scm.com/) was used for the version control of the website.
 - [GitHub](https://github.com/) was used to host the code of the website.
 - [render.com](https://render.com/) was used to deploy the project.
-- [app.diagrams](https://app.diagrams.net/) was used to make a flowchart for the README file.
+- [Draw.io](https://app.diagrams.net/) was used to make a flowchart for the README file.
 
 
 ---
