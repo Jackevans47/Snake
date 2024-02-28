@@ -71,3 +71,24 @@ The user can interact with the menu with the arrowkeys to choose an option then 
    The program will close and the user is shown an exit message confirming they have quit the game.
 
    ![exit game message](https://github.com/Jackevans47/Snake/assets/148341732/08aaea17-9305-47bc-97cc-4bbc48fc0b6e)
+
+  - **When the user scores a point**
+
+    When the user eats the food and scores a point, the snake size is increased by 1 and a point is added.
+
+    ![snake increase size](https://github.com/Jackevans47/Snake/assets/148341732/d387312f-6ad5-43e7-a2b6-80d7a3fa9582)
+    
+    ![score](https://github.com/Jackevans47/Snake/assets/148341732/f0164467-7a1f-4ccf-9d42-dc0f6bad28b1)
+
+   - **When the user hits the wall or the snake**
+
+     When the user hits the boundaries on the game are or collides with the snake, a game over message will pop up on screen showing the user the game is over.
+
+     ![snake eats itself](https://github.com/Jackevans47/Snake/assets/148341732/5ee2ae0f-47b6-482a-ac60-05af606fdc50)
+
+
+     A message will appear telling the user to press any key to be returned to the menu.
+
+     ![game over](https://github.com/Jackevans47/Snake/assets/148341732/cdd28d5a-ff7a-473f-9f5e-b010b61c2692)
+     
+---
