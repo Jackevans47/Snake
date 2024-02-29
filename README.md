@@ -146,3 +146,78 @@ The flowchart represents the logic of the application:
 Please refer to the [TESTING.md](TESTING.md) file for all test related documentation.
 
 ---
+## Deployment
+
+- The program was deployed to [Render](https://render.com/).
+- The program can be reached by the [link](https://snake-3.onrender.com/)
+
+  ### To deploy the project to Render so it can be run as a remote web application:
+
+Link to the deployed application on Render: [My Snake Game](https://snake-3.onrender.com/)
+
+1. Create a new Render account if you don't already have one here [Render](https://render.com/).
+
+2. Create a new application on the following page here [New Render App](https://dashboard.render.com/), choose **Webservice**:
+
+    ![web service](https://github.com/Jackevans47/Snake/assets/148341732/a51a8699-5150-461a-85e0-38223c144455)
+
+3. Select build and deploy from a GIT repository.
+
+    ![build ](https://github.com/Jackevans47/Snake/assets/148341732/1be864d7-a28e-4500-a991-c896b8004ef2)
+
+
+4. Search for the repository you created and click "Connect."
+
+   ![connect repository](https://github.com/Jackevans47/Snake/assets/148341732/bed89ad6-fbed-4a39-9fca-b507563b1d17)
+
+
+5. Create name for the application
+
+    ![name](https://github.com/Jackevans47/Snake/assets/148341732/05135236-9640-4b2f-bc55-776d8d5ed217)
+
+
+6. Select the region where you want to deploy the application.
+
+    ![region](https://github.com/Jackevans47/Snake/assets/148341732/a8ba5f72-6f85-460e-9ded-71077a9b273a)
+
+
+7. Select branch to deploy.
+
+    ![branch](https://github.com/Jackevans47/Snake/assets/148341732/1ced51c1-c620-4563-adef-3df8e8faf06d)
+
+
+8. Select runtime.
+
+    ![runtime](https://github.com/Jackevans47/Snake/assets/148341732/067cf18b-c03b-416a-9bb4-f2177bdb14df)
+
+
+9. Render build command: `pip3 install -r requirements.txt && npm install`
+
+    ![build command](https://github.com/Jackevans47/Snake/assets/148341732/952fcf37-40d5-4e2a-b714-4d49b5c60f85)
+
+
+10. Render start command: `node index.js`
+
+    ![start command](https://github.com/Jackevans47/Snake/assets/148341732/d3b8e49e-390e-465f-8c99-5810f4fff7b9)
+
+
+11. Select Free plan.
+
+    ![payment plan](https://github.com/Jackevans47/Snake/assets/148341732/5ef4f0e6-cf4e-42d3-86fb-e3ae00e89c25)
+
+
+
+12. Add the following environment variables:
+
+    - Key: PORT Value: 8000
+    - Key: PYTHON_VERSION Value: 3.9.6
+
+    ![enviromental variables](https://github.com/Jackevans47/Snake/assets/148341732/566476b8-744b-48c8-b8a3-cec6fa5aad31)
+
+
+13. Click "Create Web Service."
+
+    ![create web service](https://github.com/Jackevans47/Snake/assets/148341732/5bb975c6-b026-4679-be3e-35e866d2bf87)
+
+
+14. Wait for the completion of the deployment.
