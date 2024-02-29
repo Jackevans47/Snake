@@ -119,7 +119,7 @@ The flowchart represents the logic of the application:
 - 
 ##### Third-party imports:
 - [Simple Terminal Menu](https://pypi.org/project/simple-term-menu/) was used to implement the menu.
-- [curses](https://pypi.org/project/windows-curses/) was used to implement the controls for the game.
+- [windows-curses](https://pypi.org/project/windows-curses/) was used to implement the controls for the game.
 - [cursor](https://pypi.org/project/cursor/) was used to hide the cursor.
 
 #### Other tools:
@@ -228,9 +228,10 @@ Link to the deployed application on Render: [My Snake Game](https://snake-3.onre
 
 - Terminal menu: [Simple Terminal Menu](https://pypi.org/project/simple-term-menu/).
 - [render.com](https://render.com/) for hosting the application.
-- [curses](https://pypi.org/project/windows-curses/) to implement the controls for the game.
+- [windows-curses](https://pypi.org/project/windows-curses/) to implement the controls for the game.
 - [cursor](https://pypi.org/project/cursor/) used to hide the cursor.
-
+- [GitHub](https://github.com/) used to host the code of the website.
+- [Code Institute](https://learn.codeinstitute.net/dashboard) used to host the code of the website.
 
 ---
 ## Acknowledgements
