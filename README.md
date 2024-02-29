@@ -141,3 +141,8 @@ The flowchart represents the logic of the application:
 3. An unfixed bug was present when trying to impliment the use of emojis for the snake and food object. The food object would randomly not spawn in. This was fixed by keeping the code simple and just using "#" for the snake and "*" for the food. The use of emojis could be applied during a future project.
 
 ---
+## Testing
+
+Please refer to the [TESTING.md](TESTING.md) file for all test related documentation.
+
+---
