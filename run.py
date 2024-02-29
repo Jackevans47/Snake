@@ -14,7 +14,11 @@ from constants import (
 )
 
 
-# Main menu options
+"""
+Main menu options
+"""
+
+
 def main():
     choice = None
 
@@ -31,7 +35,11 @@ def main():
     print(END_MSG)
 
 
-# Display for the main menu
+"""
+Display for the main menu
+"""
+
+
 def display_main_menu():
     options = ["Play", "Rules", "Exit"]
     terminal_menu = TerminalMenu(options)
@@ -55,12 +63,21 @@ def food_object(snake, container):
     return food
 
 
-# Display score
+"""
+Display score
+"""
+
+
 def show_score(screen, score):
     score_display = "score: {}".format(score)
     width = curses.COLS
     screen.addstr(1, width // 2 - len(score_display) // 2, score_display)
     screen.refresh()
+
+
+"""
+Game over
+"""
 
 
 def game_over(
@@ -90,6 +107,11 @@ def game_over(
         screen.clear()
         return True
     return False
+
+
+"""
+Main body
+"""
 
 
 def main_body(screen):
