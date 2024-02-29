@@ -221,3 +221,27 @@ Link to the deployed application on Render: [My Snake Game](https://snake-3.onre
 
 
 14. Wait for the completion of the deployment.
+
+
+---
+## Credits
+
+- Terminal menu: [Simple Terminal Menu](https://pypi.org/project/simple-term-menu/).
+- [render.com](https://render.com/) for hosting the application.
+- [curses](https://pypi.org/project/windows-curses/)
+- [cursor](https://pypi.org/project/cursor/)
+
+
+---
+## Acknowledgements
+
+[Iuliia Konovalova](https://github.com/IuliiaKonovalova)
+
+I am grateful to my mentor Iuliia Konovalova for her guidance and helpful feedback!
+
+
+[Indian Pythonista](https://www.youtube.com/watch?v=BvbqI6eDh0c)
+
+- I used this tutorial as inspiation and to help structure my project.
+
+---
