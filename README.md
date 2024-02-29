@@ -228,8 +228,8 @@ Link to the deployed application on Render: [My Snake Game](https://snake-3.onre
 
 - Terminal menu: [Simple Terminal Menu](https://pypi.org/project/simple-term-menu/).
 - [render.com](https://render.com/) for hosting the application.
-- [curses](https://pypi.org/project/windows-curses/)
-- [cursor](https://pypi.org/project/cursor/)
+- [curses](https://pypi.org/project/windows-curses/) to implement the controls for the game.
+- [cursor](https://pypi.org/project/cursor/) used to hide the cursor.
 
 
 ---
